@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Contact - Vine Of Truth</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="style.css" rel="stylesheet">
+    </head>
+    <body>
+        <div class="page-transition-overlay" aria-hidden="true">
+            <img src="Logo.jpg" alt="Vine Of Truth logo" class="transition-logo" />
+        </div>
+
+        <header class="top-header">
+            <div class="logo">
+                <img src="Logo.jpg" alt="Vine Of Truth" />
+            </div>
+            <a href="index.html" class="header-nav-link">Home</a>
+        </header>
+
+        <main>
+            <section class="contact-hero-section">
+                <div class="content-section reveal contact-panel">
+                    <h1>Contact</h1>
+                    <p>You can reach us through phone at <b>(470) 217-9364</b></p>
+                    <p>Or if you prefer email, leave us your info below. We’d love to hear from you. Send us your inquiry below and we’ll be in touch soon.</p>
+
+                    <form id="contact-form" class="contact-form" action="https://formsubmit.co/vineoftruthlandscaping@gmail.com" method="POST">
+                        <input type="hidden" name="_subject" value="New inquiry from Vine of Truth website">
+                        <input type="hidden" name="_captcha" value="false">
+
+                    <div class="form-row">
+                        <label for="first-name">First name</label>
+                        <input type="text" id="first-name" name="firstName" placeholder="Enter your first name" required>
+                    </div>
+
+                    <div class="form-row">
+                        <label for="last-name">Last name</label>
+                        <input type="text" id="last-name" name="lastName" placeholder="Enter your last name" required>
+                    </div>
+
+                    <div class="form-row">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" placeholder="Enter your email address" required>
+                    </div>
+
+                    <div class="form-row">
+                        <label for="message">Message</label>
+                        <textarea id="message" name="message" rows="6" placeholder="Tell us what you’d like to know..." required></textarea>
+                    </div>
+
+                    <button type="submit" class="submit-btn">Send Inquiry</button>
+                    <p id="form-status" class="form-status" role="status" aria-live="polite"></p>
+                </form>
+            </div>
+        </section>
+    </main>
+
+        <footer class="bottom-bar">
+            <div class="footer-left">
+                <p>© 2026 Vine Of Truth Landscaping. All rights reserved.</p>
+                <p>Vine Of Truth Landscaping™ and associated marks are trademarks of the company.</p>
+            </div>
+            <div class="footer-right">
+                <p>Website written and developed by Jacob Hilliard</p>
+                <p>hilliardjm0127@gmail.com</p>
+                <p>470-568-0293</p>
+            </div>
+        </footer>
+
+        <script src="script.js"></script>
+    </body>
+</html>

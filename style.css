@@ -1,0 +1,487 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f4f7ef;
+    color: #29452c;
+    font-size: 18px;
+}
+
+.top-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 32px;
+    height: 72px;
+    background-color: #e8f0dc;
+    color: #29452c;
+    box-shadow: 0 2px 8px rgba(41, 69, 44, 0.12);
+    position: relative;
+    box-sizing: border-box;
+}
+
+.logo {
+    padding: 12px 0px 0px;
+    display: flex;
+    align-items: center;
+}
+
+.logo img {
+    height: 100px;
+    width: auto;
+    display: block;
+    max-height: 100%;
+}
+
+.nav-links {
+    display: flex;
+    gap: 20px;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.nav-links a {
+    color: #2f2f2f;
+    text-decoration: none;
+    font-weight: 600;
+    padding: 8px 12px;
+    border-radius: 6px;
+    transition: background-color 0.2s ease;
+}
+
+.nav-links a:hover {
+    background-color: rgba(0, 0, 0, 0.08);
+}
+
+.header-nav-link {
+    color: #29452c;
+    text-decoration: none;
+    font-weight: 600;
+    padding: 8px 14px;
+    border: 1px solid #4b6f4a;
+    border-radius: 6px;
+    transition: background-color 0.2s ease, color 0.2s ease;
+    margin-left: auto;
+}
+
+.header-nav-link:hover {
+    background-color: #4b6f4a;
+    color: #f4f7ef;
+}
+
+.hero-section {
+    min-height: 560px;
+    padding: 64px 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+    background-image: url("shovelingintrailer.jpg");
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+.hero-section::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(90deg, rgba(15, 31, 16, 0.72) 0%, rgba(15, 31, 16, 0.3) 100%);
+    pointer-events: none;
+}
+
+.contact-hero-section {
+    min-height: calc(100vh - 144px);
+    padding: 64px 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+    background-image: url("shovelingintrailer.jpg");
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+.contact-hero-section::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(15, 31, 16, 0.45);
+    pointer-events: none;
+}
+
+.hero-overlay {
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+    transform: translateY(0);
+    transition: transform 0.25s ease-out;
+    will-change: transform;
+}
+
+.hero-overlay {
+    max-width: 470px;
+    padding: 28px;
+    border-radius: 20px;
+    background: rgba(255, 255, 255, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.35);
+    box-shadow: 0 12px 36px rgba(0, 0, 0, 0.18);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.hero-overlay h1 {
+    margin: 0 0 10px;
+    font-size: 2.2rem;
+    line-height: 1.2;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.25);
+}
+
+.hero-overlay p {
+    margin: 0;
+    font-size: 1.05rem;
+    line-height: 1.6;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+.quote-button {
+    display: inline-block;
+    margin-top: 18px;
+    padding: 12px 20px;
+    border-radius: 999px;
+    background: rgba(17, 148, 24, 0.24);
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: 700;
+    border: 1px solid rgba(255, 255, 255, 0.35);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.16);
+    transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+.quote-button:hover {
+    background: rgba(255, 255, 255, 0.34);
+    transform: translateY(-2px);
+}
+
+.page-transition-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    pointer-events: none;
+    background: #f4f7ef;
+    opacity: 0;
+    visibility: hidden;
+    clip-path: circle(0% at 50% 50%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    will-change: clip-path, opacity;
+}
+
+.transition-logo {
+    width: min(220px, 40vw);
+    max-width: 220px;
+    height: auto;
+    opacity: 0;
+    transform: scale(0.8);
+    transition: opacity 0.2s ease, transform 0.2s ease;
+    filter: drop-shadow(0 8px 24px rgba(0, 0, 0, 0.18));
+}
+
+.page-transition-overlay.is-active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.page-transition-overlay.is-active .transition-logo {
+    opacity: 1;
+    transform: scale(1);
+}
+
+.page-transition-overlay.is-expanding {
+    animation: transition-expand 0.7s ease forwards;
+}
+
+.page-transition-overlay.is-collapsing {
+    animation: transition-collapse 0.75s ease forwards;
+}
+
+@keyframes transition-expand {
+    from {
+        clip-path: circle(0% at var(--x, 50%) var(--y, 50%));
+    }
+    to {
+        clip-path: circle(150vmax at var(--x, 50%) var(--y, 50%));
+    }
+}
+
+@keyframes transition-collapse {
+    0% {
+        clip-path: circle(150vmax at var(--x, 50%) var(--y, 50%));
+    }
+    100% {
+        clip-path: circle(0% at var(--x, 50%) var(--y, 50%));
+    }
+}
+
+.content-section {
+    padding: 40px 32px;
+    max-width: 900px;
+    margin: 24px auto;
+    border-radius: 20px;
+    background: rgba(255, 255, 255, 0.22);
+    border: 1px solid rgba(255, 255, 255, 0.35);
+    box-shadow: 0 12px 36px rgba(0, 0, 0, 0.12);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.contact-panel {
+    position: relative;
+    z-index: 1;
+    transform: translateY(0);
+    transition: transform 0.25s ease-out;
+    will-change: transform;
+}
+
+.content-section.reveal-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.content-section h1,
+.content-section h2 {
+    margin-bottom: 10px;
+}
+
+.content-section p {
+    font-size: 1.15rem;
+    line-height: 1.6;
+}
+
+.contact-form {
+    background-color: #ffffff;
+    padding: 28px;
+    border-radius: 14px;
+    box-shadow: 0 6px 20px rgba(41, 69, 44, 0.1);
+    display: grid;
+    gap: 16px;
+    margin-top: 24px;
+}
+
+.form-row {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.form-row label {
+    font-weight: 600;
+    color: #29452c;
+}
+
+.form-row input,
+.form-row textarea {
+    padding: 12px 14px;
+    border: 1px solid #cdd9c2;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-family: inherit;
+    color: #29452c;
+}
+
+.form-row input:focus,
+.form-row textarea:focus {
+    outline: none;
+    border-color: #4b6f4a;
+    box-shadow: 0 0 0 3px rgba(75, 111, 74, 0.15);
+}
+
+.submit-btn {
+    background-color: #4b6f4a;
+    color: #f4f7ef;
+    border: none;
+    border-radius: 8px;
+    padding: 12px 16px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.submit-btn:hover {
+    background-color: #3b573a;
+}
+
+.form-status {
+    min-height: 24px;
+    margin: 0;
+    color: #4b6f4a;
+    font-weight: 600;
+}
+
+.reviews-section {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.reviews-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 16px;
+}
+
+.review-card {
+    padding: 20px;
+    border-radius: 16px;
+    background: rgba(255, 255, 255, 0.25);
+    border: 1px solid rgba(255, 255, 255, 0.35);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+}
+
+.review-card p {
+    margin: 0 0 10px;
+    font-size: 1rem;
+    line-height: 1.6;
+}
+
+.review-card strong {
+    color: #29452c;
+}
+
+.stars {
+    margin: 8px 0 10px;
+    color: #f4b400;
+    letter-spacing: 2px;
+    font-size: 1.1rem;
+}
+
+.owner-section {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+}
+
+.owner-text {
+    flex: 1;
+}
+
+.owner-image {
+    width: 280px;
+    height: auto;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(41, 69, 44, 0.15);
+}
+
+.gallery-section {
+    max-width: 1100px;
+}
+
+.gallery-section h2 {
+    margin-top: 0;
+    text-align: center;
+    font-size: 2.2rem;
+    text-decoration: underline;
+}
+
+.gallery-viewer {
+    position: relative;
+    max-width: 820px;
+    margin: 0 auto;
+    outline: none;
+    touch-action: pan-y;
+}
+
+.gallery-image {
+    width: 100%;
+    height: min(70vh, 680px);
+    object-fit: contain;
+    display: block;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(41, 69, 44, 0.15);
+}
+
+.gallery-arrow {
+    position: absolute;
+    top: 50%;
+    z-index: 1;
+    width: 44px;
+    height: 44px;
+    border: 1px solid rgba(255, 255, 255, 0.65);
+    border-radius: 50%;
+    background: rgba(41, 69, 44, 0.78);
+    color: #ffffff;
+    font-size: 2rem;
+    line-height: 1;
+    cursor: pointer;
+    transform: translateY(-50%);
+    transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.gallery-arrow:hover,
+.gallery-arrow:focus-visible {
+    background: #29452c;
+    transform: translateY(-50%) scale(1.08);
+}
+
+.gallery-arrow-previous {
+    left: 14px;
+}
+
+.gallery-arrow-next {
+    right: 14px;
+}
+
+.gallery-counter {
+    position: absolute;
+    right: 14px;
+    bottom: 14px;
+    padding: 5px 10px;
+    border-radius: 999px;
+    background: rgba(41, 69, 44, 0.78);
+    color: #ffffff;
+    font-size: 0.9rem;
+}
+
+.bottom-bar {
+    background: rgba(255, 255, 255, 0.2);
+    color: #4d614d;
+    padding: 16px 32px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 24px;
+    font-size: 0.95rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.35);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+}
+
+.footer-left,
+.footer-right {
+    flex: 1;
+}
+
+.footer-right {
+    text-align: right;
+}
+
+.bottom-bar p {
+    margin: 4px 0;
+}
