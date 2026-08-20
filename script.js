@@ -3,7 +3,7 @@ const transitionOverlay = document.querySelector('.page-transition-overlay') || 
     const overlay = document.createElement('div');
     overlay.className = 'page-transition-overlay';
     overlay.setAttribute('aria-hidden', 'true');
-    overlay.innerHTML = '<img src="Logo.jpg" alt="Vine Of Truth logo" class="transition-logo" />';
+    overlay.innerHTML = '<img src="Logo.webp" alt="Vine Of Truth logo" class="transition-logo" />';
     document.body.prepend(overlay);
     return overlay;
 })();
